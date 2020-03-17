@@ -17,8 +17,8 @@ app.listen(process.env.PORT, () => console.log(`Front app listening on port ${pr
 app.post('/party', function(req, res) {
   axios
   .post(`${process.env.API_URL}/party`, req.body)
-  .then(({data}) => console.log(data))
-  .catch((err) => console.error(err));
+  .then(({ data }) => res.redirect(`/party/${data._id}`))
+  .catch((err) => res.send(err));
 });
 
 app.get('/party/:id', function(req, res) {
@@ -28,7 +28,8 @@ app.get('/party/:id', function(req, res) {
   .then(({ data }) =>
     res.render('party', {
       party: data,
-      title: data.name
+      title: data.name,
+      url: `${process.env.FRONT_URL}:${process.env.PORT}/party/${data._id}`
     }),
   )
   .catch((err) => console.log(err));

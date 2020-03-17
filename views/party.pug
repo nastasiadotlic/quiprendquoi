@@ -2,3 +2,14 @@ include ../partials/header.pug
 h1 Qui prend quoi ?
 h2= party.name
 h3 Créé par #{party.author}
+
+div
+  label(for="url") Partagez l'événement
+  input(id="url" value=`${url}`)
+
+form(method="post" action="/party")
+  div
+    label(for="item") Ajouter un élément dans la liste
+    input(name="item" id="item" required minlength="3" placeholder="Champagne")
+  div
+    button(type="submit") Ajouter
