@@ -22,6 +22,15 @@ app.post('/party', function(req, res) {
 });
 
 app.get('/party/:id', function(req, res) {
-  res.render('party', { title: 'Page événement' });
+  console.log(req.params.id)
+  axios
+  .get(`${process.env.API_URL}/party/${req.params.id}`)
+  .then(({ data }) =>
+    res.render('party', {
+      party: data,
+      title: data.name
+    }),
+  )
+  .catch((err) => console.log(err));
 });
 
