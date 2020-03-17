@@ -21,3 +21,7 @@ app.post('/party', function(req, res) {
   .catch((err) => console.error(err));
 });
 
+app.get('/party/:id', function(req, res) {
+  res.render('party', { title: 'Page événement' });
+});
+
