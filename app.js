@@ -35,3 +35,5 @@ app.get('/party/:id', function(req, res) {
   .catch((err) => console.log(err));
 });
 
+app.use(express.static('public'));
+
