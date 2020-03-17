@@ -14,7 +14,10 @@ app.get('/', function(req, res) {
 
 app.listen(process.env.PORT, () => console.log(`Front app listening on port ${process.env.PORT}!`));
 
-axios
+app.post('/party', function(req, res) {
+  axios
   .post(`${process.env.API_URL}/party`, req.body)
   .then(({data}) => console.log(data))
   .catch((err) => console.error(err));
+});
+
