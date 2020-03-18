@@ -6,6 +6,7 @@ const axios = require('axios');
 
 app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 
 app.get('/', function(req, res) {
@@ -35,5 +36,5 @@ app.get('/party/:id', function(req, res) {
   .catch((err) => console.log(err));
 });
 
-app.use(express.static('public'));
+
 
