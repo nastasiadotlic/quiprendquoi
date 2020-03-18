@@ -5,7 +5,8 @@ h3 Créé par #{party.author}
 
 div
   label(for="url") Partagez l'événement
-  input(id="url" value=`${url}`)
+  input(id="url" value=`${url}` data-clipboard=`${url}`)
+
 
 form(method="post" action="/party")
   div
